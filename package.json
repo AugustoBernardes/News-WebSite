@@ -1,0 +1,23 @@
+{
+  "name": "jornalnews",
+  "version": "1.0.0",
+  "description": "This is a website to a Jornal showing the daily , weekly and monthly news with a ADMIN route to make all the updates and create new news.",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "Augusto Bernardes",
+  "license": "ISC",
+  "dependencies": {
+    "cloudinary": "^1.27.0",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.0.8",
+    "multer": "^1.4.3",
+    "nodemon": "^2.0.13"
+  }
+}

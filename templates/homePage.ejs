@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <title>Home</title>
+</head>
+<body>
+    <div class="container">
+        <div class=" p-3 mb-3 d-flex flex-column justify-content-center align-items-center  text-dark" style="margin-top: 50px">
+            <h1>ADMIN Management</h1>
+            <a class="w-50 btn btn-primary mt-2" style="font-size: 25px;" href="/admin/addnotice">Add Notice</a>
+            <a class="w-50 btn btn-primary mt-2" style="font-size: 25px;" href="/">WebSite</a>
+        </div>
+    </div>
+    <h2 style="box-shadow: 5px 7px 5px #888888;" class="container text-light  bg-dark text-center rounded w-50 p-3 mt-3">Daily News</h2>
+    <div class="d-flex justify-content-around flex-wrap container mt-3">
+       <% dailyNews.forEach((notice) => { %>
+            <form  style="width: 300px;" method="POST" action="/admin/<%=notice._id %>?_method=DELETE">
+                <div style="background-color: #c9c8c8; box-shadow: 5px 7px 5px #888888;" class="card mb-3  d-flex flex-column p-3">
+                    <img style="max-height: 200px;" src="<%=notice.image_url %>" alt="News Image">
+                    <div class="d-flex flex-column mt-2">
+                        <h2 class="text-center"><%=notice.title %></h2>
+                        <h5 class="text-center"><%=notice.description %></h5>
+                        <p class="mt-2">Clicks: <%=notice.clicks %></p>
+                        <div class=" d-flex flex-column  ">
+                            <a class="btn btn-primary mt-2" style="font-size: 25px;" href="/admin/editnotice/<%=notice._id %>">Edit</a>
+                            <a class="btn btn-success mt-2" style="font-size: 25px;"  href="/admin/update/<%=notice._id %>">Move to weekly</a>
+                            <button class="btn btn-danger mt-2" style="font-size: 25px;" type="submit" >Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        <% }) %>
+    </div>
+    <h2 style="box-shadow: 5px 7px 5px #888888;" class="container text-light  bg-dark text-center rounded w-50 p-3 mt-3">Weekly News</h2>
+    <div class="d-flex justify-content-around flex-wrap container mt-3">
+       <% weeklyNews.forEach((notice) => { %>
+            <form  style="width: 300px;" method="POST" action="/admin/<%=notice._id %>?_method=DELETE">
+                <div style="background-color: #c9c8c8; box-shadow: 5px 7px 5px #888888;" class="card mb-3  d-flex flex-column p-3">
+                    <img style="max-height: 200px;" src="<%=notice.image_url %>" alt="News Image">
+                    <div class="d-flex flex-column mt-2">
+                        <h2 class="text-center"><%=notice.title %></h2>
+                        <h5 class="text-center"><%=notice.description %></h5>
+                        <p class="mt-2">Clicks: <%=notice.clicks %></p>
+                        <div class=" d-flex flex-column  ">
+                            <a class="btn btn-primary mt-2" style="font-size: 25px;" href="/admin/editnotice/<%=notice._id %>">Edit</a>
+                            <a class="btn btn-success mt-2" style="font-size: 25px;" href="/admin/update/<%=notice._id%>">Move to Monthly</a>
+                            <button class="btn btn-danger mt-2" style="font-size: 25px;" type="submit" >Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        <% }) %>
+    </div>
+    <h2 style="box-shadow: 5px 7px 5px #888888;" class="container text-light  bg-dark text-center rounded w-50 p-3 mt-3">Monthly News</h2>
+    <div class="d-flex justify-content-around flex-wrap container mt-3">
+       <% monthlyNews.forEach((notice) => { %>
+            <form  style="width: 300px;" method="POST" action="/admin/<%=notice._id %>?_method=DELETE">
+                <div style="background-color: #c9c8c8; box-shadow: 5px 7px 5px #888888;" class="card mb-3  d-flex flex-column p-3">
+                    <img style="max-height: 200px;" src="<%=notice.image_url %>" alt="News Image">
+                    <div class="d-flex flex-column mt-2">
+                        <h2 class="text-center"><%=notice.title %></h2>
+                        <h5 class="text-center"><%=notice.description %></h5>
+                        <p class="mt-2">Clicks: <%=notice.clicks %></p>
+                        <div class=" d-flex flex-column  ">
+                            <a class="btn btn-primary mt-2" style="font-size: 25px;" href="/admin/editnotice/<%=notice._id %>">Edit</a>
+                            <button class="btn btn-danger mt-2" style="font-size: 25px;" type="submit" >Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        <% }) %>
+    </div>
+    
+    <h3 class="text-center mt-3 mb-3">Developed by <a class="text-secondary " style="text-decoration:none;" href="https://github.com/AugustoBernardes" >Augusto</a></h3>
+</body>
+</html>

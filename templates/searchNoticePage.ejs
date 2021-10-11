@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>searchedNotice</title>
+</head>
+<body>
+    <nav class="bg-dark  sticky-top d-flex align-items-center justify-content-around p-3">
+        <h1><a style="text-decoration: none;" class="text-light" href="/">Augusto's News</a></h1>
+        <form class="d-flex  flex-row" action="/search" method="POST">
+            <input class="form-control" name="search" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-secondary my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
+
+    <% if(searchedNews.length != 0){ %> 
+        <h2 style="box-shadow: 5px 7px 5px #888888;" class="container text-light  bg-dark text-center rounded w-50 p-3 mt-3">News Found</h2>
+        <div class="d-flex justify-content-around flex-wrap container mt-3">
+            <% searchedNews.forEach(notice => { %> 
+                <div style="background-color: #c9c8c8; box-shadow: 5px 7px 5px #888888; width: 300px;" class="card mb-3  d-flex flex-column p-3">
+                    <img style="max-height: 200px;" src="<%= notice.image_url %>" alt="Notice Image">
+                    <div class="d-flex flex-column mt-2">
+                        <h2 class="text-center"><%= notice.title %></h2>
+                        <h5 class="text-center"><%= notice.description %></h5>
+                        <a class="btn btn-secondary " href="/notice/<%= notice._id %>">View</a>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+        <div class="container mt-3  d-flex align-items-center  justify-content-center">
+            <a style="width: 200px;" class="btn btn-primary mt-2 mb-2" href="/">Back</a>
+        </div>
+    <% } else{  %> 
+        <h2 style="box-shadow: 5px 7px 5px #888888;" class="container text-light  bg-dark text-center rounded w-50 p-3 mt-3">Any notice found!</h2>
+        <div class="container mt-3  d-flex align-items-center  justify-content-center">
+            <a style="width: 200px;" class="btn btn-primary mt-2 mb-2" href="/">Back</a>
+        </div>
+    <% } %> 
+        
+    <h3 class="text-center mt-3 mb-3">Developed by <a class="text-secondary " style="text-decoration:none;" href="https://github.com/AugustoBernardes" >Augusto</a></h3>
+</body>
+</html>

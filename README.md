@@ -37,6 +37,8 @@ password: adminadmin
   $ npm install ejs
   
   $ npm install express
+  
+  $ npm install dotenv
  
   $ npm install mongoose
 
